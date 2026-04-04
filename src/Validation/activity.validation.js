@@ -150,7 +150,7 @@ export const validateCorrectAnswer = (type, isQuiz, correctAnswer, context = {})
         case 'rating':
             const ratingResult = z.number().int()
                 .min(context.minRating || 1, `Correct answer must be at least ${context.minRating || 1}`)
-                .max(context.maxRating || 5, `Correct answer must be at most ${context.maxRating || 5}`)
+                .max(context.MaxRating || 5, `Correct answer must be at most ${context.MaxRating || 5}`)
                 .safeParse(correctAnswer);
             return {
                 success: ratingResult.success,

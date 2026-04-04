@@ -5,8 +5,20 @@ const resourceSchema  = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Session'
     },
-    title: String, 
-    url: String
+    title: {
+        type:String,
+        required:true
+    },
+    type:{
+        type:String ,
+        enum: ['pdf', 'video',"link", "image"],
+        required:true
+        
+    }, 
+    url:{
+        type:String,
+        required:true
+    }
 }, {
     timestamps: true
 })
