@@ -8,7 +8,7 @@ const baseResourceFields = {
 }
 
 
-const resourceSchema = z.discriminatedUnion("type", [
+export const resourceSchema = z.discriminatedUnion("type", [
   z.object({
     ...baseResourceFields,
     type: z.literal("pdf"),

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const sessionSchema  = new mongoose.Schema({
+const sessionSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -15,7 +15,7 @@ const sessionSchema  = new mongoose.Schema({
     },
     accessType: {
         type: String,
-        enum: ["public", "private"] 
+        enum: ["public", "private"]
     },
 }, {
     timestamps: true
