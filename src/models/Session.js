@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const sessionSchema  = new mongoose.Schema({
     userId: {
@@ -6,7 +6,13 @@ const sessionSchema  = new mongoose.Schema({
         ref: 'User'
     },
     title: String,
-    slug: String,
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
     accessType: {
         type: String,
         enum: ["public", "private"] 
@@ -15,4 +21,6 @@ const sessionSchema  = new mongoose.Schema({
     timestamps: true
 })
 
-export const Session = mongoose.model("Session", sessionSchema);
+const Session = mongoose.model("Session", sessionSchema);
+
+module.exports = {Session};

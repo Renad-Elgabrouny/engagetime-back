@@ -1,6 +1,6 @@
-import mongoose from "mongoose"
+const mongoose = require("mongoose");
 
-const PULSE_STATES = ["none", "got it", "confused", "lost"] 
+const PULSE_STATES = ["none", "got it", "confused", "lost"];
 
 const attendeeSchema = new mongoose.Schema(
   {
@@ -28,8 +28,10 @@ const attendeeSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: false, 
+    timestamps: false,
   }
-)
+);
 
-export const Attendee = mongoose.model("Attendee", attendeeSchema)
+const Attendee = mongoose.model("Attendee", attendeeSchema);
+
+module.exports = { Attendee, PULSE_STATES };

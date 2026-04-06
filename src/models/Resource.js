@@ -1,9 +1,10 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const resourceSchema  = new mongoose.Schema({
     sessionId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Session'
+        ref: 'Session',
+        required:true,
     },
     title: {
         type:String,
@@ -11,7 +12,7 @@ const resourceSchema  = new mongoose.Schema({
     },
     type:{
         type:String ,
-        enum: ['pdf', 'video',"link", "image"],
+        enum: ['pdf', 'video','link', 'image'],
         required:true
         
     }, 
@@ -23,4 +24,5 @@ const resourceSchema  = new mongoose.Schema({
     timestamps: true
 })
 
-export const Resource = mongoose.model("Resource", resourceSchema);
+const Resource = mongoose.model("Resource", resourceSchema);
+module.exports={Resource};

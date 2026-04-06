@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const questionSchema = new mongoose.Schema({
     sessionId: {
@@ -30,4 +30,5 @@ const questionSchema = new mongoose.Schema({
         timestamps: true
     })
 
-export const Question = mongoose.model('Question', questionSchema);
+const Question = mongoose.model('Question', questionSchema);
+module.exports={Question};
