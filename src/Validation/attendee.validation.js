@@ -1,7 +1,7 @@
 const { z } = require("zod");
 const { PULSE_STATES } = require("../models/Attendee"); 
 
-const baseAttendeeFields = {
+export const baseAttendeeFields = {
   sessionId: z.string().min(1, "Session ID is required"),
   deviceId: z.string().min(1, "Device ID is required"),
   username: z
@@ -11,7 +11,7 @@ const baseAttendeeFields = {
     .optional(),
 };
 
-const attendeeSchemas = {
+export const attendeeSchemas = {
   join: z.object({
     ...baseAttendeeFields,
   }),

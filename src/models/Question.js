@@ -6,8 +6,6 @@ const questionSchema = new mongoose.Schema({
         ref: 'Session'
     },
     deviceId: {
-        // type: mongoose.Schema.Types.ObjectId,
-        // ref: 'Attendee',
         type: String,
         required: true
     },
