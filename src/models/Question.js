@@ -7,7 +7,8 @@ const questionSchema = new mongoose.Schema({
     },
     deviceId: {
         type: String,
-        required: true
+        required: true,
+        trim: true,
     },
     question: {
         type: String,

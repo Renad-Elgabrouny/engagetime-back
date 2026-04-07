@@ -17,6 +17,12 @@ const sessionSchema = new mongoose.Schema({
         type: String,
         enum: ["public", "private"]
     },
+    code: String,
+    state: {
+        type: String,
+        enum: ["active", "closed"],
+        default: "closed"
+    }
 }, {
     timestamps: true
 })
