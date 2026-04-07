@@ -1,18 +1,32 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const sessionSchema  = new mongoose.Schema({
+const sessionSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
     title: String,
-    slug: String,
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
     accessType: {
         type: String,
-        enum: ["public", "private"] 
+        enum: ["public", "private"]
     },
+    code: String,
+    state: {
+        type: String,
+        enum: ["active", "closed"],
+        default: "closed"
+    }
 }, {
     timestamps: true
 })
 
-export const Session = mongoose.model("Session", sessionSchema);
+const Session = mongoose.model("Session", sessionSchema);
+
+module.exports = {Session};

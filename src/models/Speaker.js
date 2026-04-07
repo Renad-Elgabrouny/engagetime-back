@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+const mongoose = require("mongoose");
 
 const speakerSchema = new mongoose.Schema(
   {
@@ -43,4 +43,5 @@ const speakerSchema = new mongoose.Schema(
   }
 )
 
-export const Speaker = mongoose.model("Speaker", speakerSchema)
+const Speaker = mongoose.model("Speaker", speakerSchema);
+module.exports={Speaker};

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const questionSchema = new mongoose.Schema({
     sessionId: {
@@ -6,10 +6,9 @@ const questionSchema = new mongoose.Schema({
         ref: 'Session'
     },
     deviceId: {
-        // type: mongoose.Schema.Types.ObjectId,
-        // ref: 'Attendee',
         type: String,
-        required: true
+        required: true,
+        trim: true,
     },
     question: {
         type: String,
@@ -30,4 +29,5 @@ const questionSchema = new mongoose.Schema({
         timestamps: true
     })
 
-export const Question = mongoose.model('Question', questionSchema);
+const Question = mongoose.model('Question', questionSchema);
+module.exports={Question};
