@@ -1,5 +1,5 @@
-import { z } from "zod";
-import mongoose from "mongoose";
+const { z } = require("zod");
+const mongoose = require("mongoose");
 
 const baseResourceFields = {
     sessionId: z.instanceof(mongoose.Types.ObjectId).or(z.string()).optional(),
@@ -26,3 +26,5 @@ export const resourceSchema = z.discriminatedUnion("type", [
     type: z.literal("image"),
   }),
 ]);
+
+module.exports={resourceSchema}

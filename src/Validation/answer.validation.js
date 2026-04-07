@@ -70,4 +70,4 @@ const validateAnswer = (type, answerData) => {
   return { success: true, data: result.data, error: null, details: null };
 };
 
-module.exports = { validateAnswer }; 
+module.exports = { answerSchemas }; 
