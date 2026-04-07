@@ -8,7 +8,7 @@ answerRouter.post("/:type",validate(answerSchemas),
 // controller function
 )
 
-answerRouter.get("/poll/:pollId",
+answerRouter.get("/activiy/:activityId",
 
   //controller function
 )
